@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#3157a4">
+<title>Nhật ký lớp học</title>
+<style>
+:root{--blue:#3157a4;--ink:#18233d;--muted:#667085;--line:#dce3ef;--bg:#f3f6fb;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.wrap{max-width:720px;margin:auto;padding:18px 14px 34px}.hero{background:linear-gradient(135deg,#3157a4,#5478c3);color:#fff;border-radius:20px;padding:20px 18px;margin-bottom:16px}.hero h1{font-size:22px;margin:0 0 5px}.hero p{margin:0;opacity:.9;font-size:14px}.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 2px 8px #243b6410}.section-title{font-weight:750;font-size:17px;margin:0 0 12px;display:flex;gap:8px;align-items:center}.num{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:9px;background:#eaf0ff;color:var(--blue);font-size:14px}.field{margin:10px 0}.field label{display:block;font-weight:650;font-size:14px;margin:0 0 6px}.hint{color:var(--muted);font-size:12px;margin-top:4px}input,textarea{width:100%;border:1px solid #cbd5e1;border-radius:11px;padding:12px 13px;font:inherit;color:var(--ink);background:#fff;outline:none}input:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #3157a41c}textarea{resize:vertical;min-height:66px}input[type=date]{min-height:46px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{position:sticky;bottom:0;background:#f3f6fbf2;backdrop-filter:blur(10px);padding:12px 0 calc(12px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:12px;padding:14px 12px;font-size:15px;font-weight:750;cursor:pointer}.primary{background:var(--blue);color:#fff}.secondary{background:#e7ecf5;color:var(--ink)}.preview{white-space:pre-wrap;background:#f8faff;border:1px dashed #b8c7e4;border-radius:12px;padding:14px;font-size:15px;line-height:1.55;overflow-wrap:anywhere}.status{min-height:20px;text-align:center;color:#18794e;font-size:13px;margin-top:6px}.small{font-size:12px;color:var(--muted)}
+@media(max-width:420px){.grid{grid-template-columns:1fr}.wrap{padding-left:12px;padding-right:12px}.card{padding:14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero"><h1>📘 Nhật ký lớp học</h1><p>Nhập thông tin trong ngày · Tạo báo cáo · Copy gửi cô giáo</p></header>
+  <section class="card">
+    <div class="field"><label for="reportDate">Ngày báo cáo</label><input id="reportDate" type="date"></div>
+    <div class="small">Ngày được tự động điền theo ngày hiện tại trên iPhone. Có thể sửa nếu cần.</div>
+  </section>
+  <section class="card">
+    <h2 class="section-title"><span class="num">1</span>Các bạn tích cực, được điểm tốt</h2>
+    <textarea id="positive" placeholder="Ví dụ: Minh Anh được 10 điểm Toán; Hôm nay không có điểm gì"></textarea>
+    <div class="hint">Nếu không có, nhập: Hôm nay không có điểm gì</div>
+  </section>
+  <section class="card">
+    <h2 class="section-title"><span class="num">2</span>Các bạn thiếu BTVN</h2>
+    <div class="grid">
+      <div class="field"><label for="team1">Tổ 1</label><textarea id="team1" placeholder="Tên học sinh (lý do)"></textarea></div>
+      <div class="field"><label for="team2">Tổ 2</label><textarea id="team2" placeholder="Tên học sinh (lý do)"></textarea></div>
+      <div class="field"><label for="team3">Tổ 3</label><textarea id="team3" placeholder="Tên học sinh (lý do)"></textarea></div>
+      <div class="field"><label for="team4">Tổ 4</label><textarea id="team4" placeholder="Tên học sinh (lý do)"></textarea></div>
+    </div>
+    <div class="hint">Ví dụ: Nhã Phương, Hoàng Nam (thiếu Toán). Nếu không có, ghi “Không ai”.</div>
+  </section>
+  <section class="card">
+    <h2 class="section-title"><span class="num">3</span>Các bạn bị giáo viên nhắc nhở</h2>
+    <textarea id="warnings" placeholder="Ví dụ: Thảo Chi (nói chuyện trong giờ Toán); Bảo Anh (quên khăn quàng đỏ)"></textarea>
+    <div class="hint">Mỗi bạn nên ghi rõ lý do trong ngoặc đơn. Nếu không có, có thể để trống.</div>
+  </section>
+  <section class="card">
+    <h2 class="section-title"><span class="num">4</span>Bài tập về nhà (BTVN)</h2>
+    <div class="field"><label for="math">Toán</label><textarea id="math" placeholder="Ví dụ: Làm bài 1–5"></textarea></div>
+    <div class="field"><label for="literature">Văn</label><textarea id="literature" placeholder="Ví dụ: Soạn bài ..."></textarea></div>
+    <div class="field"><label for="english">Tiếng Anh</label><textarea id="english" placeholder="Ví dụ: Làm phiếu UOE"></textarea></div>
+    <div class="field"><label for="other">Môn khác (nếu có)</label><textarea id="other" placeholder="Ví dụ: Lý: ...; Sử: ..."></textarea></div>
+  </section>
+  <section class="card">
+    <h2 class="section-title">👀 Xem trước báo cáo</h2>
+    <div id="preview" class="preview">Nội dung báo cáo sẽ xuất hiện ở đây khi con nhập thông tin.</div>
+    <div id="status" class="status" aria-live="polite"></div>
+  </section>
+  <div class="actions">
+    <button class="btn secondary" id="resetBtn" type="button">Xóa nội dung</button>
+    <button class="btn primary" id="copyBtn" type="button">📋 Copy báo cáo</button>
+  </div>
+  <p class="small" style="text-align:center">Công cụ tạo báo cáo ngay trên thiết bị. Nội dung không được gửi lên máy chủ và không lưu lịch sử.</p>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const fields=['positive','team1','team2','team3','team4','warnings','math','literature','english','other'];
+const todayLocal=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+$('reportDate').value=todayLocal();
+const val=id=>$(id).value.trim();
+const dateText=()=>{const v=$('reportDate').value;if(!v)return '';const [y,m,d]=v.split('-');return `${Number(d)}/${Number(m)}/${y}`};
+function build(){
+ const positive=val('positive')||'Hôm nay không có điểm gì';
+ const team=(n)=>val('team'+n)||'Không ai';
+ const warning=val('warnings')||'Không có';
+ const lines=[
+ 'Kính gửi phụ huynh!',
+ `Ngày ${dateText()}:`,
+ `1. Các bạn tích cực trong các giờ, được điểm tốt: ${positive}`,
+ '2. Các bạn thiếu BTVN:',
+ `Tổ 1: ${team(1)}`,
+ `Tổ 2: ${team(2)}`,
+ `Tổ 3: ${team(3)}`,
+ `Tổ 4: ${team(4)}`,
+ '3. Các bạn bị gv nhắc nhở:',
+ warning,
+ '4. BTVN',
+ `Toán: ${val('math')||'Không có'}`,
+ `Văn: ${val('literature')||'Không có'}`,
+ `Anh: ${val('english')||'Không có'}`
+ ];
+ if(val('other')) lines.push(val('other'));
+ return lines.join('\n');
+}
+function update(){ $('preview').textContent=build(); $('status').textContent=''; }
+fields.concat(['reportDate']).forEach(id=>$(id).addEventListener('input',update));
+$('copyBtn').addEventListener('click',async()=>{
+ const text=build();
+ try{await navigator.clipboard.writeText(text);$('status').textContent='Đã copy báo cáo. Con mở Zalo và dán vào nhóm lớp nhé!';}
+ catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();$('status').textContent=ok?'Đã copy báo cáo. Con mở Zalo và dán vào nhóm lớp nhé!':'Chưa copy được. Con nhấn giữ phần xem trước để chọn và sao chép.';}
+});
+$('resetBtn').addEventListener('click',()=>{if(!confirm('Xóa toàn bộ nội dung đang nhập?'))return;fields.forEach(id=>$(id).value='');$('reportDate').value=todayLocal();update();});
+update();
+</script>
+</body>
+</html>
